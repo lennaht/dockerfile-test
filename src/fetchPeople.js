@@ -18,5 +18,11 @@ export async function getPerson(id) {
     const homeworldRes = await fetch(person.homeworld);
     person.homeworld = (await homeworldRes.json()).name;
 
+    if (person.species && person.species[0]) {
+        console.log(person.species[0]);
+        const speciesRes = await fetch(person.species[0]);
+        person.species = (await speciesRes.json()).name;
+    } else person.species = 'Human';
+
     return person;
 };
