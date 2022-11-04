@@ -12,10 +12,10 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag "${DOCKER_USERNAME}/sw-random-character:latest"
+      run: docker build . --file Dockerfile --tag "lennahht/sw-random-character:latest"
     - name: Login to Docker Hub
       run: docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
     - name: Push image to Docker Hub
-      run: docker push "${DOCKER_USERNAME}/sw-random-character:latest"
+      run: docker push "$lennahht/sw-random-character:latest"
     - name: Log out of Docker Hub
       run: docker logout
